@@ -19,13 +19,14 @@ let gridWidth;
 let lastClickedCell;
 let submitButton;
 
-
+/* array declartions */
 let colorRecord = [];
 let lastClickedCells = [];
 
-
+/* assigning submit button on page to the variable submitButton */
 submitButton = $('input[value="Make My Grid"]');
 
+/* anonymous function using click event handler to create the grid when user clicks on "make my grid" button */
 submitButton.click(function(e){
 	e.preventDefault();
 	$('tr,td').remove();
@@ -41,8 +42,7 @@ submitButton.click(function(e){
 	$('#gridControls').fadeIn(1000);
 })
 
-/*changing the color of cell when clicked on */
-
+/* changing the color of cell when clicked on */
 $('#pixelCanvas').on('click', 'td', function() {
 	color = $('#colorPicker').val();
 	currentColor = $(this).css("background-color");
@@ -52,6 +52,7 @@ $('#pixelCanvas').on('click', 'td', function() {
     lastClickedCell.css("background-color", color);
 })
 
+/* undo button */
 $('#undoButton').click(function(e){
 	e.preventDefault();
 	arrLength = lastClickedCells.length;
@@ -60,7 +61,6 @@ $('#undoButton').click(function(e){
 	colorRecord.pop();
 	lastClickedCells.pop();
 })
-
 
 });
 
